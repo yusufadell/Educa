@@ -3,4 +3,4 @@ Pillow==8.3.2
 django-braces==1.14.0
 python-memcached==1.59
 django-memcache-status==2.2
-djangorestframework==3.11.0
+djangorestframework==3.11.2
