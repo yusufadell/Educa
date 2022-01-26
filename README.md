@@ -114,15 +114,15 @@ memcached -l 127.0.0.1:11211
 ### educa/: This is the project directory, which consists of the following files:
 
 
->> - __init__.py: An empty file that tells Python to treat the educa directory as a Python module.
+ - __init__.py: An empty file that tells Python to treat the educa directory as a Python module.
 
->> - **asgi.py**: This is the configuration to run the project as ASGI, the emerging Python standard for asynchronous web servers and applications.
+ - **asgi.py**: This is the configuration to run the project as ASGI, the emerging Python standard for asynchronous web servers and applications.
 
- >> - **settings.py**: This indicates settings and configuration for the project and contains initial default setting.
+ - **settings.py**: This indicates settings and configuration for the project and contains initial default setting.
 
- >> - **urls.py**: This is the place where the project URL patterns live. Each URL defined here is mapped to a view.
+ - **urls.py**: This is the place where the project URL patterns live. Each URL defined here is mapped to a view.
 
- >> - **wsgi.py**: This is the configuration to run your project as a Web Server Gateway Interface (WSGI) application.
+ - **wsgi.py**: This is the configuration to run your project as a Web Server Gateway Interface (WSGI) application.
 
 ### 2- Structure of the Application
 
@@ -131,17 +131,17 @@ memcached -l 127.0.0.1:11211
 >> - **fields.py**: This is where i create cutom model fields
 that allows me to define an order for objects. and make [This future](#custom-model-field-to-order-objects) exists.
 
->> - **forms.py**: This function inside This file allows me to build a model formset dynamically for the Module objects related to a Course object.
+ - **forms.py**: This function inside This file allows me to build a model formset dynamically for the Module objects related to a Course object.
 
->> - **models.py**: This includes the data models of your application; all Django applications need to have a models.py file, but this file can be left empty.
+ - **models.py**: This includes the data models of your application; all Django applications need to have a models.py file, but this file can be left empty.
 
->> - **views.py**: The logic of your application goes here; each view receives an HTTP request, processes it, and returns a response.
+ - **views.py**: The logic of your application goes here; each view receives an HTTP request, processes it, and returns a response.
 
->> - **admin.py**: This is where i register models to include them in the Django administration site.
+ - **admin.py**: This is where i register models to include them in the Django administration site.
 
->> - **apps.py**: This includes the main configuration of the courses application.
+ - **apps.py**: This includes the main configuration of the courses application.
 
->> - **migrations**: This directory will contain database migrations of your application. 
+ - **migrations**: This directory will contain database migrations of your application. 
 Migrations allow Django to track your model changes and synchronize the database accordingly.
 
 
