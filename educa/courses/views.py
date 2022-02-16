@@ -131,7 +131,6 @@ class ContentCreateUpdateView(TemplateResponseMixin, View):
             obj.owner = request.user
             obj.save()
             if not id:
-                # new content
                 Content.objects.create(module=self.module,
                                        item=obj)
             return redirect('module_content_list', self.module.id)
