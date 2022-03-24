@@ -1,0 +1,245 @@
+openapi: 3.0.2
+info:
+  title: ''
+  version: ''
+paths:
+  /api/subjects/:
+    get:
+      operationId: listSubjects
+      description: ''
+      parameters: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Subject'
+          description: ''
+      tags:
+      - api
+  /api/subjects/{id}/:
+    get:
+      operationId: retrieveSubject
+      description: ''
+      parameters:
+      - name: id
+        in: path
+        required: true
+        description: A unique integer value identifying this subject.
+        schema:
+          type: string
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Subject'
+          description: ''
+      tags:
+      - api
+  /api/courses/:
+    get:
+      operationId: listCourses
+      description: ''
+      parameters: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Course'
+          description: ''
+      tags:
+      - api
+  /api/courses/{id}/:
+    get:
+      operationId: retrieveCourse
+      description: ''
+      parameters:
+      - name: id
+        in: path
+        required: true
+        description: A unique integer value identifying this course.
+        schema:
+          type: string
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Course'
+          description: ''
+      tags:
+      - api
+  /api/courses/{id}/contents/:
+    get:
+      operationId: contentsCourse
+      description: ''
+      parameters:
+      - name: id
+        in: path
+        required: true
+        description: A unique integer value identifying this course.
+        schema:
+          type: string
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CourseWithContents'
+          description: ''
+      tags:
+      - api
+  /api/courses/{id}/enroll/:
+    post:
+      operationId: enrollCourse
+      description: ''
+      parameters:
+      - name: id
+        in: path
+        required: true
+        description: A unique integer value identifying this course.
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Course'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/Course'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/Course'
+      responses:
+        '201':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Course'
+          description: ''
+      tags:
+      - api
+components:
+  schemas:
+    Subject:
+      type: object
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        title:
+          type: string
+          maxLength: 200
+        slug:
+          type: string
+          maxLength: 200
+          pattern: ^[-a-zA-Z0-9_]+$
+      required:
+      - title
+      - slug
+    Course:
+      type: object
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        subject:
+          type: integer
+        title:
+          type: string
+          maxLength: 200
+        slug:
+          type: string
+          maxLength: 200
+          pattern: ^[-a-zA-Z0-9_]+$
+        overview:
+          type: string
+        created:
+          type: string
+          format: date-time
+          readOnly: true
+        owner:
+          type: integer
+        modules:
+          type: array
+          items:
+            type: object
+            properties:
+              order:
+                type: integer
+              title:
+                type: string
+                maxLength: 200
+              description:
+                type: string
+            required:
+            - title
+          readOnly: true
+      required:
+      - subject
+      - title
+      - slug
+      - overview
+      - owner
+    CourseWithContents:
+      type: object
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        subject:
+          type: integer
+        title:
+          type: string
+          maxLength: 200
+        slug:
+          type: string
+          maxLength: 200
+          pattern: ^[-a-zA-Z0-9_]+$
+        overview:
+          type: string
+        created:
+          type: string
+          format: date-time
+          readOnly: true
+        owner:
+          type: integer
+        modules:
+          type: array
+          items:
+            type: object
+            properties:
+              order:
+                type: integer
+              title:
+                type: string
+                maxLength: 200
+              description:
+                type: string
+              contents:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    order:
+                      type: integer
+                    item:
+                      type: string
+                      readOnly: true
+            required:
+            - title
+            - contents
+      required:
+      - subject
+      - title
+      - slug
+      - overview
+      - owner
+      - modules
