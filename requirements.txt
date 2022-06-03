@@ -5,6 +5,6 @@ django-embed-video==1.4.1
 python-memcached==1.59
 django-memcache-status==2.2
 djangorestframework>=3.11.2
+channels==2.4.0
 uritemplate
 drf-yasg
-
