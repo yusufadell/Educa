@@ -6,7 +6,6 @@ from django.conf.urls.static import static
 from courses.views import CourseListView
 from rest_framework.schemas import get_schema_view
 from rest_framework import permissions
-from drf_yasg.views import get_schema_view
 from drf_yasg import openapi
 
 
