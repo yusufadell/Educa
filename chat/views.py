@@ -1,6 +1,6 @@
-from django.http import HttpResponseForbidden
-from django.shortcuts import render, get_list_or_404
 from django.contrib.auth.decorators import login_required
+from django.http import HttpResponseForbidden
+from django.shortcuts import get_list_or_404, render
 
 
 @login_required
