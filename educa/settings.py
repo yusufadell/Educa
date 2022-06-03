@@ -10,6 +10,7 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/3.0/ref/settings/
 """
 
+from django.urls import reverse_lazy
 import os
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
@@ -31,17 +32,22 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
-    'courses.apps.CoursesConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'students.apps.StudentsConfig',
+
+    # Third-party apps
     'embed_video',
     'memcache_status',
     'rest_framework',
+
+    # My Apps
+    'courses.apps.CoursesConfig',
+    'students.apps.StudentsConfig',
+    'chat.apps.ChatConfig',
 ]
 
 MIDDLEWARE = [
@@ -125,8 +131,6 @@ STATIC_URL = '/static/'
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
 
-
-from django.urls import reverse_lazy
 
 LOGIN_REDIRECT_URL = reverse_lazy('student_course_list')
 
