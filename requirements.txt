@@ -8,4 +8,3 @@ djangorestframework>=3.11.2
 channels==2.4.0
 uritemplate
 drf-yasg
-
