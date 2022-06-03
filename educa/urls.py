@@ -24,20 +24,21 @@ schema_view = get_schema_view(
 )
 
 urlpatterns = [
-    path('accounts/login/', auth_views.LoginView.as_view(), name='login'),
-    path('accounts/logout/', auth_views.LogoutView.as_view(), name='logout'),
-    path('admin/', admin.site.urls),
-    path('course/', include('courses.urls')),
-    path('', CourseListView.as_view(), name='course_list'),
-    path('students/', include('students.urls')),
-    path('api/', include('courses.api.urls', namespace='api')),
-    path('chat/', include('chat.urls', namespace='chat')),
-    path('swagger/', schema_view.with_ui(
-        'swagger', cache_timeout=0), name='schema-swagger-ui'),
-    path('redoc/', schema_view.with_ui(
-        'redoc', cache_timeout=0), name='schema-redoc'),
+    path("accounts/login/", auth_views.LoginView.as_view(), name="login"),
+    path("accounts/logout/", auth_views.LogoutView.as_view(), name="logout"),
+    path("admin/", admin.site.urls),
+    path("course/", include("courses.urls")),
+    path("", CourseListView.as_view(), name="course_list"),
+    path("students/", include("students.urls")),
+    path("api/", include("courses.api.urls", namespace="api")),
+    path("chat/", include("chat.urls", namespace="chat")),
+    path(
+        "swagger/",
+        schema_view.with_ui("swagger", cache_timeout=0),
+        name="schema-swagger-ui",
+    ),
+    path("redoc/", schema_view.with_ui("redoc", cache_timeout=0), name="schema-redoc"),
 ]
 
 if settings.DEBUG:
-    urlpatterns += static(settings.MEDIA_URL,
-                          document_root=settings.MEDIA_ROOT)
+    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

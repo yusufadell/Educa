@@ -10,4 +10,4 @@ def course_chat_room(request, course_id):
     except:
         return HttpResponseForbidden()
 
-    return render(request, 'chat/room.html', {'course': course})
+    return render(request, "chat/room.html", {"course": course})
