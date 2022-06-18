@@ -1,10 +1,13 @@
 Django>=3.1.13
 Pillow>=8.3.2
-django-braces==1.14.0
-django-embed-video==1.4.1
+django-braces==1.15.0
+django-embed-video==1.4.4
 python-memcached==1.59
 django-memcache-status==2.2
 djangorestframework>=3.11.2
-channels==2.4.0
+channels==3.0.4
 uritemplate
 drf-yasg
+channels-redis==3.4.0
+
+asgiref~=3.5.2
