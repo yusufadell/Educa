@@ -61,7 +61,13 @@ MIDDLEWARE = [
 
 ROOT_URLCONF = "educa.urls"
 CHANNEL_LAYERS = {
-    "default": {"BACKEND": "channels_redis.core.RedisChannelLayer", "CONFIG": {"hosts": ["redis://localhost:6379/0"]}}}
+    "default": {
+        "BACKEND": "channels_redis.core.RedisChannelLayer",
+        "CONFIG": {
+            "hosts": ["redis://localhost:6379/0"]
+        },
+    }
+}
 
 TEMPLATES = [{
     "BACKEND": "django.template.backends.django.DjangoTemplates",
@@ -95,20 +101,20 @@ DATABASES = {
 AUTH_PASSWORD_VALIDATORS = [
     {
         "NAME":
-            ("django.contrib.auth.password_validation.UserAttributeSimilarityValidator"
-             )
+        ("django.contrib.auth.password_validation.UserAttributeSimilarityValidator"
+         )
     },
     {
         "NAME":
-            "django.contrib.auth.password_validation.MinimumLengthValidator"
+        "django.contrib.auth.password_validation.MinimumLengthValidator"
     },
     {
         "NAME":
-            "django.contrib.auth.password_validation.CommonPasswordValidator"
+        "django.contrib.auth.password_validation.CommonPasswordValidator"
     },
     {
         "NAME":
-            "django.contrib.auth.password_validation.NumericPasswordValidator"
+        "django.contrib.auth.password_validation.NumericPasswordValidator"
     },
 ]
 
@@ -150,7 +156,7 @@ CACHE_MIDDLEWARE_KEY_PREFIX = "educa"
 
 REST_FRAMEWORK = {
     "DEFAULT_PERMISSION_CLASSES":
-        ["rest_framework.permissions.DjangoModelPermissionsOrAnonReadOnly"]
+    ["rest_framework.permissions.DjangoModelPermissionsOrAnonReadOnly"]
 }
 
 # define the main ASGI application
