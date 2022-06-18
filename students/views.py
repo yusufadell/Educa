@@ -66,3 +66,5 @@ class StudentCourseDetailView(DetailView):
             # get first module
             context['module'] = course.modules.all()[0]
         return context
+
+# this is a change for git to track
