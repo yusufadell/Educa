@@ -9,5 +9,4 @@ channels==3.0.4
 uritemplate
 drf-yasg
 channels-redis==3.4.0
-
-asgiref~=3.5.2
+asgiref
